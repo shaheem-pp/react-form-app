@@ -1,3 +1,5 @@
+import {ChangeEvent} from "react";
+
 interface InputFieldProps {
     inputType: string;
     label: string;
@@ -6,6 +8,7 @@ interface InputFieldProps {
     disabled?: boolean;
     id: string;
     className?: string;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 function InputField({
@@ -16,6 +19,7 @@ function InputField({
                         disabled,
                         id,
                         className,
+                        onChange,
                     }: InputFieldProps) {
     return (
         <div className="mb-3">
@@ -27,9 +31,10 @@ function InputField({
                 value={value}
                 placeholder={placeholder}
                 disabled={disabled}
+                onChange={onChange}
             />
         </div>
-    )
+    );
 }
 
 export default InputField;
